@@ -3,28 +3,40 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-const Login = () => {
+
+const Register = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <Card className="w-80 py-8 shadow-2xl rounded-[1.1rem]">
-        <CardHeader className="space-y-1">
+      <Card className="w-80 rounded-[1.1rem] py-3 shadow-2xl">
+        <CardHeader>
           <CardTitle className="text-center text-3xl font-bold">
-            Welcome Back
+            Create Account
           </CardTitle>
-
-          <p className="text-center text-sm text-muted-foreground">
-            Sign in to continue to your account
-          </p>
         </CardHeader>
 
         <CardContent>
-          <form className="space-y-3">
+          <form className="space-y-2">
             <div className="space-y-1">
-              <Label htmlFor="email">Email or Username</Label>
+              <Label htmlFor="name">Full Name</Label>
+              <Input id="name" placeholder="John Doe" autoComplete="name" />
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="username">Username</Label>
+              <Input
+                id="username"
+                placeholder="johndoe"
+                autoComplete="username"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
-                placeholder="someone@example.com"
-                autoComplete="username"
+                type="email"
+                placeholder="john@example.com"
+                autoComplete="email"
               />
             </div>
 
@@ -34,21 +46,22 @@ const Login = () => {
                 id="password"
                 type="password"
                 placeholder="••••••••"
-                autoComplete="current-password"
+                autoComplete="new-password"
               />
             </div>
 
-            <div className="flex justify-end">
-              <button
-                type="button"
-                className="text-sm text-primary hover:underline"
-              >
-                Forgot Password?
-              </button>
+            <div className="space-y-1">
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                placeholder="••••••••"
+                autoComplete="new-password"
+              />
             </div>
 
             <Button className="w-full" type="submit">
-              Login
+              Create Account
             </Button>
 
             <div className="relative py-2">
@@ -58,7 +71,7 @@ const Login = () => {
 
               <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-card px-2 text-muted-foreground">
-                  Or continue with
+                  Or sign up with
                 </span>
               </div>
             </div>
@@ -70,7 +83,7 @@ const Login = () => {
                 className="flex items-center gap-2"
               >
                 <img src="/google.svg" className="h-5" />
-                Sign in with Google
+                Sign up with Google
               </Button>
 
               <Button
@@ -78,21 +91,16 @@ const Login = () => {
                 variant="outline"
                 className="flex items-center gap-2"
               >
-                <img src="/facebook.svg" className="h-6" />
-                Sign in with Facebook
+                <img src="/facebook.svg" className="h-6" alt="Facebook" />
+                Sign up with Facebook
               </Button>
             </div>
 
             <div className="flex space-x-1 justify-center">
               <p className="text-center text-sm text-muted-foreground">
-                Don't have an account?
+                Already have an account?
               </p>
-              <Link
-                to="/auth/register"
-                className="font-medium text-primary hover:underline"
-              >
-                Register
-              </Link>
+              <Link to="/">Login</Link>
             </div>
           </form>
         </CardContent>
@@ -101,4 +109,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
